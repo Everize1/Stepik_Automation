@@ -14,7 +14,7 @@ def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store',
                      default="chrome", help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store',
-                     default="ru", help="ru or en")
+                     default="ru", help="Choose language: ru, en, fr, etc.")
 
 
 # by default launch for each function call
