@@ -18,7 +18,7 @@ def pytest_addoption(parser):
 
 
 # by default launch for each function call
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def browser(request):
     # request - get browser_name from cmd
     browser_name = request.config.getoption("browser_name")
