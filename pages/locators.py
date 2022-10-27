@@ -20,12 +20,12 @@ class LoginPageLocators():
     REGISTER_FORM = (By.XPATH, "//*[@id='register_form']")
 
 
-class PromoPageLocators():
-    def page_item(item):
-        return By.XPATH, ("//*[@action='/ru/basket/add/" + str(item) + "/']")
-    def price_item(item):
-        return By.XPATH, ("//*[@action='/ru/basket/add/" + str(item) + "/']")
+class ProductPageLocators():
+    # найти локатор кнопки добавления корзины с совпадающим ID товара
+    def get_basket_add_by_xpath_locator(item_id):
+        return By.XPATH, (f"//*[@action='/ru/basket/add/{item_id}/']")
+
     CART_BUTTON = (By.XPATH, "//*[@id='add_to_basket_form']/button")
-    ITEM_PRICE = (By.XPATH, "")
-    CART_ITEM_ALERT = (By.XPATH, "//*[@=]")
-    CART_PRICE = (By.XPATH, "//*[@=]")
+    PAGE_ITEM_NAME = (By.XPATH, "//*[@class='col-sm-6 product_main']/*[1]")
+    PAGE_ITEM_PRICE = (By.XPATH, "//*[@class='col-sm-6 product_main']/*[2]")
+    ADD_ITEM_ALERTS = (By.XPATH, "//div[@id='messages']//*[@class='alertinner ']")
