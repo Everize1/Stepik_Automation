@@ -28,4 +28,4 @@ class ProductPageLocators():
     CART_BUTTON = (By.XPATH, "//*[@id='add_to_basket_form']/button")
     PAGE_ITEM_NAME = (By.XPATH, "//*[@class='col-sm-6 product_main']/*[1]")
     PAGE_ITEM_PRICE = (By.XPATH, "//*[@class='col-sm-6 product_main']/*[2]")
-    ADD_ITEM_ALERTS = (By.XPATH, "//div[@id='messages']//*[@class='alertinner ']")
+    ADD_ITEM_ALERTS = (By.XPATH, "//div[@id='messages']/div//strong")

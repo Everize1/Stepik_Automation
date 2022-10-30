@@ -18,7 +18,7 @@ def pytest_addoption(parser):
 
 
 # by default launch for each function call
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def browser(request):
     # request - get browser_name from cmd
     browser_name = request.config.getoption("browser_name")
@@ -30,6 +30,7 @@ def browser(request):
         opts = Options()
         opts.add_experimental_option(
             'prefs', {'intl.accept_languages': user_language})
+        opts.add_experimental_option('excludeSwitches', ['enable-logging'])
         browser = webdriver.Chrome(service=ChromeService(
             ChromeDriverManager(path=".\\driver").install()), options=opts)
 
