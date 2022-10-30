@@ -15,6 +15,7 @@ class ProductPage(BasePage):
         item_name = re.findall(r"[a-z]+", item)
         return " ".join(item_name).lower()
 
+    # проверка при присутствие элементов
     def should_be_page_element(self, page_element):
         if page_element == "CART_BUTTON":
             assert self.is_element_present(
@@ -26,11 +27,17 @@ class ProductPage(BasePage):
             assert self.is_element_present(
                 *ProductPageLocators.PAGE_ITEM_PRICE)
 
+            
+
     def get_item_price(self):
         return self.browser.find_element(*ProductPageLocators.PAGE_ITEM_PRICE)
 
+    # Найти и нажать на кнопку добавления товара по ID
     def add_item_to_cart(self, item_id):
-        self.click(*ProductPageLocators.get_basket_add_by_xpath_locator(item_id))
+        assert self.is_element_present(
+            *ProductPageLocators.get_basket_add_button_by_xpath_locator_with_id(item_id))
+        self.click(
+            *ProductPageLocators.get_basket_add_button_by_xpath_locator_with_id(item_id))
 
     def get_item_alerts_after_add(self):
         return self.browser.find_elements(*ProductPageLocators.ADD_ITEM_ALERTS)

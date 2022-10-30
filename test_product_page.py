@@ -43,17 +43,19 @@ def test_guest_can_add_product_to_basket(browser, link, item, promo):
     exp_item_id = page.get_item_id_from_url(item)
     exp_item_name = page.get_item_name_from_url(item)
     exp_item_price = page.get_item_price().text
-    
+
     page.add_item_to_cart(exp_item_id)
     page.solve_quiz_and_get_code()
 
     # вытащить текст алертов после добавления в корзину
     alerts_elements = page.get_item_alerts_after_add()
-    
-    assert exp_item_name == alerts_elements[0].text.lower()
-    assert page.should_contain_expected_text(exp_item_price, alerts_elements[-1].text)
 
+    assert exp_item_name == alerts_elements[0].text.lower(), \
+    "Expected item name is not same as described on the page"
     
+    assert page.should_contain_expected_text( \
+        exp_item_price, alerts_elements[-1].text), \
+        "Expected item price name is not same as described on the page"
+
     # for i in alerts_elements:
     #     print(i.text.lower())
-

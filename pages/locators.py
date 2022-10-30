@@ -22,7 +22,7 @@ class LoginPageLocators():
 
 class ProductPageLocators():
     # найти локатор кнопки добавления корзины с совпадающим ID товара
-    def get_basket_add_by_xpath_locator(item_id):
+    def get_basket_add_button_by_xpath_locator_with_id(item_id):
         return By.XPATH, (f"//*[@action='/ru/basket/add/{item_id}/']")
 
     CART_BUTTON = (By.XPATH, "//*[@id='add_to_basket_form']/button")
