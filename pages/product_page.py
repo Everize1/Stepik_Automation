@@ -15,6 +15,10 @@ class ProductPage(BasePage):
         item_name = re.findall(r"[a-z]+", item)
         return " ".join(item_name).lower()
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE)
+
+    
     # проверка при присутствие элементов
     def should_be_page_element(self, page_element):
         if page_element == "CART_BUTTON":

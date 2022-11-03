@@ -29,3 +29,9 @@ class ProductPageLocators():
     PAGE_ITEM_NAME = (By.XPATH, "//*[@class='col-sm-6 product_main']/*[1]")
     PAGE_ITEM_PRICE = (By.XPATH, "//*[@class='col-sm-6 product_main']/*[2]")
     ADD_ITEM_ALERTS = (By.XPATH, "//div[@id='messages']/div//strong")
+    SUCCESS_MESSAGE = (By.XPATH, "//div[@class='alert alert-safe alert-noicon alert-success  fade in'][1]")
+    
+class BasePageLocators():
+    
+    LOGIN_LINK = (By.ID, "login_link")
+    LOGIN_LINK_INVALID = (By.ID, "login_link_inc")
