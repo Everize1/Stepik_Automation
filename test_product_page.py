@@ -47,6 +47,7 @@ def test_guest_can_add_product_to_basket(browser, link, item, promo):
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/"])
 @pytest.mark.parametrize('item', ["coders-at-work_207/"])
 class TestProductSuccessMessageAfterAdding:
+    @pytest.mark.xfail
     def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser, link, item):
         page = ProductPage(browser, link, item)
         page.open()
@@ -58,7 +59,8 @@ class TestProductSuccessMessageAfterAdding:
         page = ProductPage(browser, link, item)
         page.open()
         page.should_not_be_success_message()
-
+        
+    @pytest.mark.xfail
     def test_message_disappeared_after_adding_product_to_basket(self, browser, link, item):
         page = ProductPage(browser, link, item)
         page.open()

@@ -10,7 +10,7 @@ from .locators import BasePageLocators
 
 class BasePage:
 
-    def __init__(self, browser, link, item="", promo="", timeout=10):
+    def __init__(self, browser, link="", item="", promo="", timeout=10):
         self.browser = browser
         self.link = link + item + promo
         self.browser.implicitly_wait(timeout)
