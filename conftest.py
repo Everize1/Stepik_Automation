@@ -33,9 +33,7 @@ def browser(request):
     if browser_name == "chrome":
         print("\nStart Сhrome browser for test..")
         opts = ChromeOptions()
-        
-        # opts.add_argument("--headless") \ TODO: сделать запуск в headless режиме чем опции командной строки
-        
+        opts.add_argument("--headless") # TODO: сделать запуск в headless режиме через опции командной строки
         opts.add_experimental_option(
             'prefs', {'intl.accept_languages': user_language})
         opts.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -45,9 +43,7 @@ def browser(request):
     elif browser_name == "firefox":
         print("\nStart Firefox browser for test..")
         opts = FirefoxOptions()
-        
-        # opts.add_argument("--headless") \ TODO: сделать запуск в headless режиме чем опции командной строки
-
+        opts.add_argument("--headless") # TODO: сделать запуск в headless режиме через опции командной строки
         opts.set_preference('intl.accept_languages', user_language)
 
         browser = webdriver.Firefox(

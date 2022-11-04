@@ -18,12 +18,12 @@ from .pages.product_page import ProductPage
 ])
 @pytest.mark.parametrize('item', ["coders-at-work_207/"])
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/"])
-def test_guest_can_add_product_to_basket(browser, link, item, promo, timeout=2):
+def test_guest_can_add_product_to_basket(browser, link, item, promo, timeout=4):
 
     # item - адрес конкретного товара в каталоге -> some-book_id/
     # promo - параметр url для промоакции
 
-    page = ProductPage(browser, link, item, promo)
+    page = ProductPage(browser, link, item, promo, timeout)
     page.open()
     page.should_be_page_element("CART_BUTTON")
     page.should_be_page_element("PAGE_ITEM_NAME")
