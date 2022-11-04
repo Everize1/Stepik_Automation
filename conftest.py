@@ -13,7 +13,7 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 # pytest --browser_name=firefox
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store',
-                     default="firefox", help="Choose browser: chrome or firefox")
+                     default="chrome", help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store',
                      default="ru", help="Choose language: ru, en, fr, etc.")
     
