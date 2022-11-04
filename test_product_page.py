@@ -18,7 +18,7 @@ from .pages.product_page import ProductPage
 ])
 @pytest.mark.parametrize('item', ["coders-at-work_207/"])
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/"])
-def test_guest_can_add_product_to_basket(browser, link, item, promo):
+def test_guest_can_add_product_to_basket(browser, link, item, promo, timeout=2):
 
     # item - адрес конкретного товара в каталоге -> some-book_id/
     # promo - параметр url для промоакции
@@ -51,8 +51,7 @@ class TestProductSuccessMessageAfterAdding:
     def test_guest_cant_see_success_message_after_adding_product_to_basket(self, browser, link, item):
         page = ProductPage(browser, link, item)
         page.open()
-        exp_item_id = page.get_item_id_from_url(item)
-        page.add_item_to_cart(exp_item_id)
+        page.add_item_to_cart(exp_item_id=page.get_item_id_from_url(item))
         page.should_not_be_success_message()
 
     def test_guest_cant_see_success_message(self, browser, link, item):
@@ -64,8 +63,7 @@ class TestProductSuccessMessageAfterAdding:
     def test_message_disappeared_after_adding_product_to_basket(self, browser, link, item):
         page = ProductPage(browser, link, item)
         page.open()
-        exp_item_id = page.get_item_id_from_url(item)
-        page.add_item_to_cart(exp_item_id)
+        page.add_item_to_cart(exp_item_id=page.get_item_id_from_url(item))
         page.is_disappeared()
 
     def test_guest_should_see_login_link_on_product_page(self, browser, link, item):
@@ -110,7 +108,6 @@ class TestUserAddToBasketFromProductPage:
         
         # item - адрес конкретного товара в каталоге -> some-book_id/
         # promo - параметр url для промоакции
-
         page = ProductPage(browser, link, item)
         page.open()
         page.should_be_page_element("CART_BUTTON")
