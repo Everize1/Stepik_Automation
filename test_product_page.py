@@ -1,6 +1,6 @@
 import pytest
 from .pages.product_page import ProductPage
-from .pages.locators import ProductPageLocators
+
 
 
 @pytest.mark.need_review
@@ -107,6 +107,7 @@ class TestUserAddToBasketFromProductPage:
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser, link, item):
+        
         # item - адрес конкретного товара в каталоге -> some-book_id/
         # promo - параметр url для промоакции
 
