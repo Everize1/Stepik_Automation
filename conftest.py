@@ -43,7 +43,7 @@ def browser(request):
     elif browser_name == "firefox":
         print("\nStart Firefox browser for test..")
         opts = FirefoxOptions()
-        opts.add_argument("--headless") # TODO: сделать запуск в headless режиме через опции командной строки
+        # opts.add_argument("--headless") # TODO: сделать запуск в headless режиме через опции командной строки
         opts.set_preference('intl.accept_languages', user_language)
 
         browser = webdriver.Firefox(
